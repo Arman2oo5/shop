@@ -160,7 +160,7 @@
 		{% if catalog.count > 0 %}
 			{% for c in catalog %}
 			<div class="col-lg-3">
-				{% if c.id >= 1 and c.id <= 30 %}
+				{% if c.id gte 1 and c.id lte 30 %}
 					<img style="height:200px; max-width:200px;" 
 						 src="{% get_static_prefix %}images/catalog{{ c.id|stringformat:"02d" }}.jpeg" 
 						 alt="{{ c.title }}">
