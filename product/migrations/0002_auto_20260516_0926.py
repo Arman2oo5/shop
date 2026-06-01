@@ -753,24 +753,24 @@ class Migration(migrations.Migration):
 SELECT catalog.id, catalog.category_id, category.category_title AS category, catalog.catalog_title, catalog.details, catalog.price, catalog.photo
 FROM catalog LEFT JOIN category ON catalog.category_id = category.id;
 """),
-# SQLite
-       migrations.RunSQL("""CREATE VIEW view_application AS
-SELECT application.id, application.date_application, application.telegram_id, customer.phone_number, customer.first_name, customer.last_name, customer.date_joined, application.catalog_id, catalog.category_id, category.category_title AS category, catalog.catalog_title, catalog.details, catalog.price, catalog.photo,
-(SELECT strftime('%d.%m.%Y',datem) || ' - ' || status FROM movement WHERE application_id = application.id ORDER BY datem DESC LIMIT 1) AS final
-FROM application
-LEFT JOIN customer ON application.telegram_id=customer.telegram_id
-LEFT JOIN catalog ON application.catalog_id=catalog.id
-LEFT JOIN category ON catalog.category_id=category.id
-"""),
-# # PostgreSQL
-#         migrations.RunSQL("""CREATE VIEW view_application AS
+# # SQLite
+#        migrations.RunSQL("""CREATE VIEW view_application AS
 # SELECT application.id, application.date_application, application.telegram_id, customer.phone_number, customer.first_name, customer.last_name, customer.date_joined, application.catalog_id, catalog.category_id, category.category_title AS category, catalog.catalog_title, catalog.details, catalog.price, catalog.photo,
-# (SELECT  to_char(datem, 'DD.MM.YYYY') || ' - ' || status FROM movement WHERE application_id = application.id ORDER BY datem DESC LIMIT 1) AS final
+# (SELECT strftime('%d.%m.%Y',datem) || ' - ' || status FROM movement WHERE application_id = application.id ORDER BY datem DESC LIMIT 1) AS final
 # FROM application
 # LEFT JOIN customer ON application.telegram_id=customer.telegram_id
 # LEFT JOIN catalog ON application.catalog_id=catalog.id
 # LEFT JOIN category ON catalog.category_id=category.id
 # """),
+# PostgreSQL
+        migrations.RunSQL("""CREATE VIEW view_application AS
+SELECT application.id, application.date_application, application.telegram_id, customer.phone_number, customer.first_name, customer.last_name, customer.date_joined, application.catalog_id, catalog.category_id, category.category_title AS category, catalog.catalog_title, catalog.details, catalog.price, catalog.photo,
+(SELECT  to_char(datem, 'DD.MM.YYYY') || ' - ' || status FROM movement WHERE application_id = application.id ORDER BY datem DESC LIMIT 1) AS final
+FROM application
+LEFT JOIN customer ON application.telegram_id=customer.telegram_id
+LEFT JOIN catalog ON application.catalog_id=catalog.id
+LEFT JOIN category ON catalog.category_id=category.id
+"""),
     ]
 
 

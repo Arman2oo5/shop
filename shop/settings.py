@@ -92,10 +92,10 @@ WSGI_APPLICATION = 'shop.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-       'ENGINE': 'django.db.backends.sqlite3',
-       'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    # 'default': {
+    #    'ENGINE': 'django.db.backends.sqlite3',
+    #    'NAME': BASE_DIR / 'db.sqlite3',
+    # }
 
     #'default': {
     #    'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -106,15 +106,14 @@ DATABASES = {
     #    'PORT' : '5432',
     #}
     
-    # 'default': {
-	   #  'ENGINE': 'django.db.backends.postgresql_psycopg2',
-	   #  'NAME': 'shop_bot_pez3',
-	   #  'USER' : 'shop_admin',
-	   #  'PASSWORD' : 'in6E36jBWmzdsLPgCzNFjjaXDJmWCCtd',
-	   #  'HOST' : 'dpg-cogjk3sf7o1s7380l2j0-a.frankfurt-postgres.render.com',
-	   #  'PORT' : '5432',
-    # }
-
+    'default': {
+	    'ENGINE': 'django.db.backends.postgresql_psycopg2',
+	    'NAME': 'shop_ifsl',
+	    'USER' : 'shop_ifsl_user',
+	    'PASSWORD' : 'BXAfX6IzDrACQPvHN63YJCWdL3CS16ke',
+	    'HOST' : 'dpg-d8elp1c2m8qs7392gdb0-a.frankfurt-postgres.render.com',
+	    'PORT' : '5432',
+    }
 }
 
 
