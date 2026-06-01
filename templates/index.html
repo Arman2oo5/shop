@@ -160,8 +160,18 @@
 		{% if catalog.count > 0 %}
 			{% for c in catalog %}
 			<div class="col-lg-3">
-				{% if c.photo.url != None %}					
-					<img style="height:200px; max-width:200px;;" src="{{ c.photo.url}}" alt="{{ c.title }}" >
+				{% if c.id >=1 and c.id <= 30 %}
+					{# Динамически собираем путь: статика + catalog + id с ведущим нулем + .jpeg #}
+					<img style="height:200px; max-width:200px;" 
+						 src="{% get_static_prefix %}images/catalog{{ c.id|stringformat:"02d" }}.jpeg" 
+						 alt="{{ c.title }}">
+				{% else %}
+					{# Для всех остальных ID берем картинку из базы данных #}
+					{% if c.photo %}
+						<img style="height:200px; max-width:200px;" 
+							 src="{{ c.photo.url }}" 
+							 alt="{{ c.title }}">
+					{% endif %}
 				{% endif %}
 				<h4><a href="{% url 'catalog_details' c.id %}">{{ c.catalog_title }}</a></h4>
 				<h5>{{ c.price }}  〒</h5>					
