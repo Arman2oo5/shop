@@ -14,7 +14,7 @@
 			<div class="row">
 				<div class="col-md-4">
 					{% if catalog.photo.url != None %}
-						<img style="width:100%;" src="{{ catalog.photo.url}}" alt="{{ catalog.title }}">
+						<img style="width:100%;" src="{{ catalog.photo}}" alt="{{ catalog.title }}">
 					{% endif %}
 					<p><div class="Stars" style='--rating: {{ catalog.avg_rating| stringformat:".1f" }};'></div></p>												
 				</div>
