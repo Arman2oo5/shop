@@ -162,7 +162,7 @@
 			<div class="col-lg-3">
 				{% if c.id gte 1 and c.id lte 30 %}
 					<img style="height:200px; max-width:200px;" 
-						 src="{% get_static_prefix %}images/catalog{{ c.id|stringformat:"02d" }}.jpeg" 
+						 src="{% get_static_prefix %}images/catalog{{ c.id|stringformat:"02d" }}.jpg" 
 						 alt="{{ c.title }}">
 				{% else %}
 					{% if c.photo %}
