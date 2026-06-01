@@ -46,8 +46,8 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'crispy_forms',
     'crispy_bootstrap4',
-    'cloudinary_storage',
-    'cloudinary',
+    # 'cloudinary_storage',
+    # 'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -181,12 +181,12 @@ LOGOUT_REDIRECT_URL = '/'
 LOGOUT_URL = '/'
 
 #Сохранения изображения
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'dwgreiscb',
-    'API_KEY': '829283231332991',
-    'API_SECRET': 'TfXGT9PwObkRnVSwwHjZ_HWONGg',
-}
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+# CLOUDINARY_STORAGE = {
+#     'CLOUD_NAME': 'dwgreiscb',
+#     'API_KEY': '829283231332991',
+#     'API_SECRET': 'TfXGT9PwObkRnVSwwHjZ_HWONGg',
+# }
+# DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Сброс пароля по E-Mail
 EMAIL_TIMEOUT = 300
