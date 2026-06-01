@@ -13,9 +13,11 @@
 		<div class="card-body">
 			<div class="row">
 				<div class="col-md-4">
-					{% if catalog.photo.url != None %}
-						<img style="width:100%;" src="{{ catalog.photo}}" alt="{{ catalog.title }}">
-					{% endif %}
+					{% with catalog.id|stringformat:"02d" as zero_id %}
+						<img style="width:100%;" 
+							 src="{% static 'images/catalog'|add:zero_id|add:'.jpg' %}" 
+							 alt="{{ catalog.title }}">
+					{% endwith %}
 					<p><div class="Stars" style='--rating: {{ catalog.avg_rating| stringformat:".1f" }};'></div></p>												
 				</div>
 				<div class="col-md-8">

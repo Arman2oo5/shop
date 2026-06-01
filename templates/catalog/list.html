@@ -96,9 +96,11 @@
 		<div class="card-body">
 			<div class="row">
 				<div class="col-md-6">
-					{% if c.photo.url != None %}
-						<img style="width:100%;" src="{{ c.photo.url}}" alt="{{ c.title }}">
-					{% endif %}
+					{% with c.id|stringformat:"02d" as zero_id %}
+						<img style="width:100%;" 
+							 src="{% static 'images/catalog'|add:zero_id|add:'.jpg' %}" 
+							 alt="{{ c.title }}">
+					{% endwith %}
 				</div>
 				<div class="col-md-6">
 					<h4>{{ c.price | stringformat:"1.0f" }} 〒</h4>	
