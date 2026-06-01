@@ -161,9 +161,11 @@
 			{% for c in catalog %}
 			<div class="col-lg-3">
 				{% if c.id gte 1 and c.id lte 30 %}
-					<img style="height:200px; max-width:200px;" 
-						 src="{% static 'images/catalog'|add:zero_id|add:'.jpg' %}"
-						 alt="{{ c.title }}">
+					{% with c.id|stringformat:"02d" as zero_id %}
+						<img style="height:200px; max-width:200px;" 
+							 src="{% static 'images/catalog'|add:zero_id|add:'.jpg' %}" 
+							 alt="{{ c.title }}">
+					{% endwith %}
 				{% else %}
 					{% if c.photo %}
 						<img style="height:200px; max-width:200px;" 
